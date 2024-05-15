@@ -12,6 +12,8 @@ import { PostsService } from './posts.service';
 // nest g resource module명
 @Controller('posts')
 export class PostsController {
+  // provider
+  // nest.js IoC Container 에서 자동으로 주입해준다.
   constructor(private readonly postsService: PostsService) {}
 
   // Get /posts

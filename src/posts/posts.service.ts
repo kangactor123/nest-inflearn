@@ -35,6 +35,10 @@ let posts: PostModel[] = [
     commentCount: 30000,
   },
 ];
+
+// Provider 로 사용하고 싶은 클래스는
+// 1. module 의 provider 에 클래스를 등록
+// 2. 클래스에 Injectable 데코레이터를 달아줌
 @Injectable()
 export class PostsService {
   getAllPost() {
