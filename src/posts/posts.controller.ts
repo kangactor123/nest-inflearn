@@ -33,21 +33,20 @@ export class PostsController {
   // Post /posts
   @Post()
   postPosts(
-    @Body('author') author: string,
+    @Body('authorId') authorId: number,
     @Body('title') title: string,
     @Body('content') content: string,
   ) {
-    return this.postsService.createPost(author, title, content);
+    return this.postsService.createPost(authorId, title, content);
   }
 
   @Put(':id')
   putPost(
     @Param('id') postId: string,
-    @Body('author') author?: string,
     @Body('title') title?: string,
     @Body('content') content?: string,
   ) {
-    return this.postsService.updatePost(+postId, author, title, content);
+    return this.postsService.updatePost(+postId, title, content);
   }
 
   // Delete
