@@ -14,7 +14,9 @@ export class PostsService {
     private readonly postsRepository: Repository<PostsModel>,
   ) {}
   async getAllPost() {
-    return this.postsRepository.find();
+    return this.postsRepository.find({
+      relations: ['author'], // 관계가 있는 데이터들까지 조회가 가능하다.
+    });
   }
 
   async getPostById(postId: number) {
@@ -22,6 +24,7 @@ export class PostsService {
       where: {
         id: postId,
       },
+      relations: ['author'],
     });
 
     if (!post)
